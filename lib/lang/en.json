@@ -1,0 +1,19 @@
+{
+  "home_page": "Home Page",
+  "sign_up": "Sign Up",
+  "name": "Name",
+  "name_hint": "Enter your name",
+  "required_name": "required Name",
+  "email": "Email",
+  "email_hint": "Enter your email",
+  "required_email": "required Email",
+  "date_of_birth": "Date of Birth",
+  "submit": "Sign up",
+  "required_field": "Required Field",
+  "submit_info": "Submit Info",
+  "about_us": "About Us",
+  "settings": "Settings",
+  "change_language": "Change Language",
+  "about": "Flutter is awesome🔥"
+}
+

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:internationalization1/localization/localization_constants.dart';
 import 'package:internationalization1/routes/route_names.dart';
 
 class AboutPage extends StatefulWidget {
@@ -11,12 +12,16 @@ class _AboutPageState extends State<AboutPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('About Page'),
+        title: Text(
+          getTranslated(context, 'about_us'),
+        ),
       ),
       body: Container(
         child: MaterialButton(
           color: Colors.blue,
-          child: Text('Settings Page'),
+          child: Text(
+            getTranslated(context, 'settings'),
+          ),
           onPressed: () {
             Navigator.pushNamed(context, settingsRoute);
           },

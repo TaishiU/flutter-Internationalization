@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:internationalization1/localization/localization_constants.dart';
 
 class SettingsPage extends StatefulWidget {
   @override
@@ -10,7 +11,9 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Settings Page'),
+        title: Text(
+          getTranslated(context, 'settings'),
+        ),
       ),
     );
   }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:internationalization1/crasses/language.dart';
+import 'package:internationalization1/localization/localization_constants.dart';
+import 'package:internationalization1/main.dart';
 import 'package:internationalization1/routes/route_names.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,15 +17,19 @@ class _HomePageState extends State<HomePage> {
     showTimePicker(context: context, initialTime: TimeOfDay.now());
   }
 
-  void _changeLanguage(Language language) {
-    print(language.languageCode);
+  void _changeLanguage(Language language) async {
+    Locale _temp = await setLocale(language.languageCode);
+
+    MyApp.setLocale(context, _temp);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home Page'),
+        // title:
+        //     Text(DemoLocalization.of(context).getTranslatedValue('home_page')),
+        //
         actions: [
           Padding(
             padding: EdgeInsets.all(15),
@@ -77,7 +83,7 @@ class _HomePageState extends State<HomePage> {
             height: MediaQuery.of(context).size.height / 4,
             child: Center(
               child: Text(
-                'Personal information',
+                getTranslated(context, 'sign_up'),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 30,
@@ -89,35 +95,35 @@ class _HomePageState extends State<HomePage> {
           TextFormField(
             validator: (val) {
               if (val.isEmpty) {
-                return 'required Text';
+                return getTranslated(context, 'required_name');
               }
               return null;
             },
             decoration: InputDecoration(
               border: OutlineInputBorder(),
-              labelText: 'Name',
-              hintText: 'Enter Name',
+              labelText: getTranslated(context, 'name'),
+              // hintText: getTranslated(context, 'name_hint'),
             ),
           ),
           SizedBox(height: 10),
           TextFormField(
             validator: (val) {
               if (val.isEmpty) {
-                return 'required Email';
+                return getTranslated(context, 'required_email');
               }
               return null;
             },
             decoration: InputDecoration(
               border: OutlineInputBorder(),
-              labelText: 'Email',
-              hintText: 'Enter Email',
+              labelText: getTranslated(context, 'email'),
+              // hintText: getTranslated(context, 'email_hint'),
             ),
           ),
           SizedBox(height: 10),
           TextFormField(
             decoration: InputDecoration(
               border: OutlineInputBorder(),
-              hintText: 'Select date of birth',
+              hintText: getTranslated(context, 'date_of_birth'),
             ),
             onTap: () async {
               FocusScope.of(context).requestFocus(FocusNode());
@@ -141,7 +147,7 @@ class _HomePageState extends State<HomePage> {
             color: Theme.of(context).primaryColor,
             child: Center(
               child: Text(
-                'Submit',
+                getTranslated(context, 'submit'),
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 20,
@@ -180,7 +186,7 @@ class _HomePageState extends State<HomePage> {
               size: 30,
             ),
             title: Text(
-              'About us',
+              getTranslated(context, 'about_us'),
               style: _textStyle,
             ),
             onTap: () {
@@ -195,7 +201,7 @@ class _HomePageState extends State<HomePage> {
               size: 30,
             ),
             title: Text(
-              'Settings',
+              getTranslated(context, 'settings'),
               style: _textStyle,
             ),
             onTap: () {
