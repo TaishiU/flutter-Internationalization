@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:internationalization1/crasses/language.dart';
 import 'package:internationalization1/routes/route_names.dart';
 
 class HomePage extends StatefulWidget {
@@ -14,11 +15,50 @@ class _HomePageState extends State<HomePage> {
     showTimePicker(context: context, initialTime: TimeOfDay.now());
   }
 
+  void _changeLanguage(Language language) {
+    print(language.languageCode);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Home Page'),
+        actions: [
+          Padding(
+            padding: EdgeInsets.all(15),
+            child: DropdownButton(
+              onChanged: (Language language) {
+                _changeLanguage(language);
+              },
+              underline: SizedBox(),
+              icon: Icon(
+                Icons.language,
+                color: Colors.white,
+              ),
+              items: Language.languageList()
+                  .map<DropdownMenuItem<Language>>(
+                    (lang) => DropdownMenuItem(
+                      value: lang,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            lang.name,
+                            style: TextStyle(
+                              fontSize: 30,
+                            ),
+                          ),
+                          SizedBox(width: 10),
+                          Text(lang.flag),
+                        ],
+                      ),
+                    ),
+                  )
+                  .toList(),
+            ),
+          ),
+        ],
       ),
       drawer: _drawerList(),
       body: Container(
@@ -88,6 +128,26 @@ class _HomePageState extends State<HomePage> {
                 lastDate: DateTime(DateTime.now().year + 20),
               );
             },
+          ),
+          SizedBox(height: 30),
+          MaterialButton(
+            onPressed: () {
+              if (_key.currentState.validate()) {
+                _showSuccessDialog();
+              }
+            },
+            height: 50,
+            shape: StadiumBorder(),
+            color: Theme.of(context).primaryColor,
+            child: Center(
+              child: Text(
+                'Submit',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                ),
+              ),
+            ),
           ),
         ],
       ),
