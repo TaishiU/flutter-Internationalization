@@ -3,7 +3,7 @@
 A new Flutter application.
 
 
-#　参考リンク
+## 参考リンク
 【絵文字】https://flagpedia.net/emoji<br>
 【言語コード】http://www.lingoes.net/en/translator/langcode.htm<br>
 【YouTube】https://www.youtube.com/watch?v=AS-0SXT2qio&t=2s<br>
