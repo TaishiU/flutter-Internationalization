@@ -67,7 +67,7 @@ class _MyAppState extends State<MyApp> {
               return deviceLocale;
             }
           }
-
+          /* Englishがデフォルトになる */
           return supportedLocales.first;
         },
         title: 'Flutter Demo',

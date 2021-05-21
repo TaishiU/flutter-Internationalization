@@ -2,7 +2,7 @@
 
 ![D1EF4E5C-2A4C-42F1-93C2-95BB63174EEB_1_105_c](https://user-images.githubusercontent.com/73986840/118952288-c7029400-b996-11eb-97f4-cc6f32f9adb0.jpeg)
 
-
+*「intl」パッケージは未使用<br>
 
 ## 参考リンク
 【絵文字】https://flagpedia.net/emoji<br>

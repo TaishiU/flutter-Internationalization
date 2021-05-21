@@ -17,14 +17,29 @@ class _AboutPageState extends State<AboutPage> {
         ),
       ),
       body: Container(
-        child: MaterialButton(
-          color: Colors.blue,
-          child: Text(
-            getTranslated(context, 'settings'),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              MaterialButton(
+                color: Colors.blue,
+                child: Text(
+                  getTranslated(context, 'settings'),
+                ),
+                onPressed: () {
+                  Navigator.pushNamed(context, settingsRoute);
+                },
+              ),
+              SizedBox(height: 10),
+              Text(
+                getTranslated(context, 'about'),
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
           ),
-          onPressed: () {
-            Navigator.pushNamed(context, settingsRoute);
-          },
         ),
       ),
     );

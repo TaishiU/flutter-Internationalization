@@ -20,7 +20,8 @@ dependencies:
 
 
   cupertino_icons: ^1.0.2
-  shared_preferences: ^2.0.5 #
+  shared_preferences: ^2.0.5 # 状態保存。再起動した時に言語の状態が維持される
+
 
 dev_dependencies:
   flutter_test:

@@ -27,9 +27,6 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // title:
-        //     Text(DemoLocalization.of(context).getTranslatedValue('home_page')),
-        //
         actions: [
           Padding(
             padding: EdgeInsets.all(15),
@@ -50,13 +47,13 @@ class _HomePageState extends State<HomePage> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Text(
-                            lang.name,
+                            lang.flag,
                             style: TextStyle(
                               fontSize: 30,
                             ),
                           ),
                           SizedBox(width: 10),
-                          Text(lang.flag),
+                          Text(lang.name),
                         ],
                       ),
                     ),
